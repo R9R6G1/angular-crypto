@@ -1,0 +1,110 @@
+* {
+    color: #555056;
+    font-family: sans-serif;
+  }
+  li {
+      list-style: none;
+  }
+  ::-webkit-scrollbar{
+    background: #37353c;
+    width: 13px;
+  }
+  ::-webkit-scrollbar-track{
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb{
+    background: linear-gradient(125deg,rgb(193, 176, 219),rgb(234, 221, 255));
+    border-radius: 2px;
+  }
+  body {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      background-color: rgb(234, 221, 255);
+  }
+  .exchanges-list {
+    padding: 5px;
+    border: 1px solid #555056;
+    border-radius: 5px;
+    max-height: 500px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    .exchange-item{
+        padding: 5px 3px;
+        border-bottom: 1px solid #120c47;
+    }
+  }
+  .text_data {
+    margin-left: 18px;
+    margin-top: 15px;
+  }
+  
+  .main-container {
+    margin: 0 auto;
+    width: 75%;
+  }
+  .header__liner {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: linear-gradient(to right, #37353c, rgb(234, 221, 255));
+    border-radius: 10px;
+  }
+  .header__logo {
+    font-size: 32px;
+    font-weight: 600; 
+    color: rgb(234, 221, 255);
+  }
+  .form {
+    display: flex;
+    justify-content: space-between;
+    
+  }
+  .exchange {
+    padding: 10px 15px;
+    width: 75%;
+
+    background-color: rgb(234, 221, 255);
+    border-radius: 10px;
+
+  }
+  .date {
+    width: 15%;
+
+    border-radius: 10px;
+    background-color: rgb(234, 221, 255);
+  }
+  .submit {
+    width: 15%;
+    color: rgb(234, 221, 255);
+    text-decoration: none;
+    text-align: center;
+    
+    border-radius: 10px;
+    background: #2a292c;
+    box-shadow: 0 -2px #3b3842 inset;
+    transition: 0.2s;
+  }
+  .table {
+    width: 100%;
+    padding: 25px 10px;
+    border-radius: 15px;
+    border: 4px solid #555056;
+  }
+  .submit:hover {
+    background: #3b3842;
+  }
+  .submit:active {
+    background: #535157;
+    box-shadow: 0 3px #5c5a61 inset;
+  }
+  .table-row {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-around;
+    justify-items: center;
+    align-content: center;
+  }
+  .table-row1 {
+    margin-bottom: 15px;
+  }
+  

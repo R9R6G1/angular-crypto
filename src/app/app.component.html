@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <title>Parcel Sandbox</title>
+    <meta charset="UTF-8" />
+  </head>
+
+  <body>
+    <ul class='exchanges-list'>
+      <li class="exchange-item" *ngFor="let asset of assets ">{{asset}} </li>
+    </ul>
+    <!-- <section class="form-section">
+
+		</section> -->
+		
+		<main class="main-container">
+			<div class="header__liner">
+				<div class="header__logo">BTC</div>
+			</div>
+		<form class='form' (ngSubmit)="onSubmit($event)">
+			
+			<input class="exchange" name="coin" type='text' placeholder="Type your asset pattern: ASSET/QUOTE" />
+			<input class="date" type="date" name="date"/>
+			<input class="submit" type='submit' value='Subscribe'/>
+		</form>
+    <section class="exchange-section">
+			<p class="text_data">Market data:</p>
+			<table class='table'>
+					<tr class='table-row table-row1'>
+							<th>Symbol</th>
+							<th>Price</th>
+							<th>Time</th>
+					</tr>
+					<tr class='table-row'>
+							<th>{{socketData.symbol_id}}</th>
+							<th>{{socketData.price}}</th>
+							<th>{{socketData.time_coinapi}}</th>
+					</tr>
+			</table>
+		</section>
+		<p class="text_data">Chart data:</p>
+    <section class="chart-section">
+		<div>
+			<div style="display: block">
+			  <canvas baseChart
+					  [datasets]="barChartData"
+					  [labels]="barChartLabels"
+					  [options]="barChartOptions"
+					  [legend]="barChartLegend"
+					  [type]="'line'">
+			  </canvas>
+			</div>
+		  </div>
+		</section>
+	</main>
+    <script src="src/index.ts"></script>
+  </body>
+</html>
