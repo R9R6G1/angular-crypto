@@ -15,6 +15,7 @@ import { symbols } from '../assets/test_history';
 import * as moment from 'moment';
 import { CryptoWsService } from './crypto-ws.service';
 import { environment } from 'src/environments/environment';
+import { FormControl, FormGroup } from '@angular/forms';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -35,6 +36,18 @@ export class AppComponent {
     sequence: 65061,
     type: 'trade',
   };
+  public barChartOptions = {
+    scaleShowVerticalLines: false,
+    responsive: true,
+  };
+  public barChartLabels: any = [];
+  public barChartType = 'line';
+  public barChartLegend = true;
+  public barChartData: any = [];
+  public form$ = new FormGroup({
+    coin: new FormControl(null),
+    date: new FormControl(null)
+  })
   constructor(
     cryptoApiService: CryptoApiService,
     cryptoWsService: CryptoWsService
@@ -48,14 +61,6 @@ export class AppComponent {
         return `${splited[splited.length - 2]}/${splited[splited.length - 1]}`;
       });
   }
-  public barChartOptions = {
-    scaleShowVerticalLines: false,
-    responsive: true,
-  };
-  public barChartLabels: any = [];
-  public barChartType = 'line';
-  public barChartLegend = true;
-  public barChartData: any = [];
 
   updateChartData(coin: string, currency: string, date: Date) {
     this.cryptoApiService
@@ -69,7 +74,7 @@ export class AppComponent {
             },
           ];
           this.barChartLabels = his.map((e: any) =>
-            moment(e.time_coinapi).format('MM-DD')
+            moment(e.time_coinapi).format('hh:mm:ss')
           );
         }
       });
@@ -97,13 +102,16 @@ export class AppComponent {
     };
     this.cryptoWsService.send(obj);
   }
+  onChooseSympol(symbol: any){
+    console.log(symbol);
 
-  onSubmit({
-    target: {
-      coin: { value: coinValue },
-      date: { value: dateValue },
-    },
-  }: any) {
+    this.form$.setValue({
+      coin: symbol,
+      date: this.form$.value.date
+    })
+  }
+  onSubmit() {
+    const {coin: coinValue, date: dateValue} = this.form$.value
     const splited = coinValue.split('/');
     this.updateChartData(splited[0], splited[1], new Date(dateValue));
     this.sendMessage(splited[0], splited[1]);

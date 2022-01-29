@@ -5,8 +5,8 @@
   </head>
 
   <body>
-    <ul class='exchanges-list'>
-      <li class="exchange-item" *ngFor="let asset of assets ">{{asset}} </li>
+    <ul class='exchanges-list'> 
+      <li class="exchange-item" *ngFor="let asset of assets " (click)="onChooseSympol(asset)">{{asset}} </li>
     </ul>
     <!-- <section class="form-section">
 
@@ -16,11 +16,10 @@
 			<div class="header__liner">
 				<div class="header__logo">BTC</div>
 			</div>
-		<form class='form' (ngSubmit)="onSubmit($event)">
-			
-			<input class="exchange" name="coin" type='text' placeholder="Type your asset pattern: ASSET/QUOTE" />
-			<input class="date" type="date" name="date"/>
-			<input class="submit" type='submit' value='Subscribe'/>
+		<form [formGroup]="form$" class='form'>
+			<input class="exchange" name="coin" type='text' placeholder="Type your asset pattern: ASSET/QUOTE" formControlName="coin"/>
+			<input class="date" type="date" name="date" formControlName="date"/> 
+			<input class="submit" type='submit' value='Subscribe' (click)="onSubmit()"/>
 		</form>
     <section class="exchange-section">
 			<p class="text_data">Market data:</p>

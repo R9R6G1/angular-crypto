@@ -8,7 +8,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MatDatepickerModule,
     FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     {
