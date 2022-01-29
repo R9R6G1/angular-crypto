@@ -1,7 +1,7 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { webSocket, WebSocketSubject } from 'rxjs/webSocket';
 import { Observable } from 'rxjs';
-import { environment } from '../environments/environment';
+import { environment } from '../../../environments/environment';
 interface SendData {
   type: any;
   apikey: any;

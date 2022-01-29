@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { HttpHeaders } from '@angular/common/http';
 
-import { environment } from '../environments/environment';
+import { environment } from '../../environments/environment';
 @Injectable()
 export class BaseInterceptor implements HttpInterceptor {
   constructor() {}

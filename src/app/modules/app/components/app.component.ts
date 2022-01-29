@@ -10,10 +10,10 @@ import {
 } from 'rxjs/operators';
 import { iif, Observable, of, Subject, throwError } from 'rxjs';
 
-import { CryptoApiService } from './crypto-api.service';
-import { symbols } from '../assets/test_history';
+import { CryptoApiService } from '../../../services/crypto-api.service/crypto-api.service';
+import { symbols } from '../../../../assets/test_history';
 import * as moment from 'moment';
-import { CryptoWsService } from './crypto-ws.service';
+import { CryptoWsService } from '../../../services/crypto-ws.service/crypto-ws.service';
 import { environment } from 'src/environments/environment';
 import { FormControl, FormGroup } from '@angular/forms';
 @Component({
@@ -27,7 +27,7 @@ export class AppComponent {
   assets: string[];
   public socketData: any = {
     time_exchange: new Date(),
-    time_coinapi: new Date(),
+    time_coinapi: moment(new Date()).format('hh:mm:ss'),
     uuid: '384675d1-8674-4d09-ac6b-5db17a4b2044',
     price: 0.0,
     size: 0.0,
@@ -74,7 +74,7 @@ export class AppComponent {
             },
           ];
           this.barChartLabels = his.map((e: any) =>
-            moment(e.time_coinapi).format('hh:mm:ss')
+            moment(e.time_coinapi).format('hh:mm')
           );
         }
       });
